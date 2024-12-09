@@ -13,7 +13,7 @@ export default function Filter() {
       <div className="flex gap-16">
            <h2 className="text-2xl font-bold mb-6">Filters</h2> 
           <div> <Image
-              src="/image/frame 19.png"
+              src="/image/filter.png"
               alt="Travel"
               width={24}
               height={24}
