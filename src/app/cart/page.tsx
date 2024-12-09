@@ -1,6 +1,7 @@
 "use client";
-import Image from "next/image";
+
 import React, { useState } from "react";
+import Image from "next/image";
 
 type CartItem = {
   id: number;
@@ -21,6 +22,7 @@ const Cart = () => {
 
   const discountPercentage: number = 20;
   const deliveryFee: number = 15;
+
   const updateQuantity = (id: number, action: "increase" | "decrease") => {
     const updatedItems = cartItems.map((item) => {
       if (item.id === id) {
@@ -47,15 +49,13 @@ const Cart = () => {
   const total: number = subtotal - discount + deliveryFee;
 
   return (
-    <div className="p-4 lg:p-8">
+    <div className="p-4 lg:p-8 animate-slideBottom">
       <div className="flex flex-col lg:flex-row justify-between gap-8">
-
         <div className="flex-1 bg-white shadow-lg rounded-lg p-4">
           <h2 className="text-xl font-bold mb-4">Your Cart</h2>
           <div className="space-y-6">
             {cartItems.map((item) => (
               <div key={item.id} className="flex flex-col lg:flex-row items-center justify-between border-b pb-4 relative">
-
                 <button
                   className="absolute top-2 right-2 text-red-500 text-lg -mt-6"
                   onClick={() => deleteItem(item.id)}

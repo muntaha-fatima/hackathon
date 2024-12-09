@@ -6,7 +6,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-    <div className="bg-black text-white lg:max-w-[1670px]">
+    <div className="bg-black text-white lg:max-w-[1670px] ">
         <div className="flex flex-col lg:flex-row justify-center items-center gap-2 lg:gap-4 px-4 py-2 text-sm">
   <p className="text-center ">
   Sign up and get 20% off to your first order. Sign Up Now
