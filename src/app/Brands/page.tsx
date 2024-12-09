@@ -19,7 +19,7 @@ export default function Brands() {
           onClick={toggleFilter}
         >
            <div> <Image
-              src="/image/frame 19.png"
+              src="/image/filter.png"
               alt="Travel"
               width={24}
               height={24}
