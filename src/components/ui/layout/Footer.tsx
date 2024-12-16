@@ -93,6 +93,7 @@ export default function Footer() {
         &copy; 2024 Seerat Fatima. All rights reserved.
       </div>
       <div className="flex justify-end -mt-5 ">
+        
       <Image 
 src="/image/Badge.png"
 alt="proflie"
