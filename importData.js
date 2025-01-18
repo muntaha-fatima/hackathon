@@ -1,12 +1,22 @@
 import { createClient } from '@sanity/client';
 
+// const client = createClient({
+//   projectId: 'ohg2qcks',
+//   dataset: 'production',
+//   useCdn: true,
+//   apiVersion: '2025-01-13',
+//   token: 'sky0pECzxiaYqkJAvf3HHofNr8cgQb1tO6KHCQHYzjFlv3wEC7N0Qie59s157tfsJgSCtcrP3w3UelUSfZuypjOOjIhtsGJvb4AQce8IWVfOlHPSs5r3W5G9qmCcC3ej08Pc85XGLaKLYlbuWkqh0BY8pq0nkbrNzFrs5u455KrxZEd3KR10',
+// });
+
 const client = createClient({
-  projectId: 'ohg2qcks',
-  dataset: 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'ohg2qcks',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   useCdn: true,
   apiVersion: '2025-01-13',
-  token: 'sky0pECzxiaYqkJAvf3HHofNr8cgQb1tO6KHCQHYzjFlv3wEC7N0Qie59s157tfsJgSCtcrP3w3UelUSfZuypjOOjIhtsGJvb4AQce8IWVfOlHPSs5r3W5G9qmCcC3ej08Pc85XGLaKLYlbuWkqh0BY8pq0nkbrNzFrs5u455KrxZEd3KR10',
+  token: process.env.SANITY_API_TOKEN || 'sky0pECzxiaYqkJAvf3HHofNr8cgQb1tO6KHCQHYzjFlv3wEC7N0Qie59s157tfsJgSCtcrP3w3UelUSfZuypjOOjIhtsGJvb4AQce8IWVfOlHPSs5r3W5G9qmCcC3ej08Pc85XGLaKLYlbuWkqh0BY8pq0nkbrNzFrs5u455KrxZEd3KR10',
 });
+
+
 
 async function uploadImageToSanity(imageUrl) {
   try {
