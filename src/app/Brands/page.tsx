@@ -1,7 +1,9 @@
 "use client";
+
 import { useState } from "react";
 import Filter from "@/components/ui/layout/Filter";
 import Image from "next/image";
+
 
 export default function Brands() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -207,6 +209,8 @@ export default function Brands() {
     Next
   </button>
 </div>
+
+
     </div>
   );
 }

@@ -223,3 +223,182 @@ export default function Home() {
       </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+// import Image from 'next/image';
+// import { urlFor } from '@/sanity/lib/image';
+// import { client } from '@/sanity/lib/client';
+
+// interface Homepage {
+//   name: string;
+//   mainImage: any;
+//   title: string;
+//   description: string;
+//   textPosition: 'center' | 'right' | 'left';
+//   buttonText: string;
+//   images: { _id: string; asset: any }[]; 
+//   text: string;
+//   Arrivalsimages: { _id: string; asset: any }[]; 
+//   buttonText1: string;
+//   text2: string;
+//   topimages: { _id: string; asset: any }[];
+//   buttonText2: string;
+//   dressimages: { _id: string; asset: any }[];
+//   image3: any;
+//   dressText: string;
+// }
+
+// export default async function Homepage() {
+//   const query = `*[_type == "homepage"][0]{
+//     name,
+//     mainImage,
+//     title,
+//     description,
+//     textPosition,
+//     buttonText,
+//     images,
+//     text,
+//     Arrivalsimages,
+//     buttonText1,
+//     text2,
+//     topimages,
+//     buttonText2, 
+//     dressimages,
+//     image3,
+//     dressText,
+//   }`;
+
+//   const homepageData: Homepage = await client.fetch(query);
+
+//   return (
+//     <div className="relative bg-white overflow-hidden">
+//       {/* Hero Image Section */}
+//       {homepageData.mainImage && (
+//         <div className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] relative">
+//           <Image
+//             src={urlFor(homepageData.mainImage).url() || ''}
+//             alt="Main hero image"
+//             layout="fill"
+//             objectFit="cover"
+//             className="rounded-lg"
+//           />
+//         </div>
+//       )}
+
+//       {/* Hero Text Overlay */}
+//       <div
+//         className={`absolute inset-0 flex items-center justify-center px-4 sm:px-10 py-6 md:py-10 ${homepageData.textPosition === 'center' ? 'text-center' : homepageData.textPosition === 'right' ? 'justify-end text-right pr-12' : 'justify-start text-left pl-12'}`}
+//       >
+//         <div className="max-w-[800px] text-black space-y-6">
+//           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold">{homepageData.title}</h1>
+//           <p className="text-lg sm:text-xl">{homepageData.description}</p>
+//           <button className="px-8 py-3 bg-orange-600 text-black font-semibold rounded-md hover:bg-orange-700 transition duration-200">
+//             {homepageData.buttonText || 'Learn More'}
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Image Gallery */}
+//       {homepageData.images?.length > 0 && (
+//         <div className="bg-black flex flex-wrap gap-6 justify-center py-10">
+//           {homepageData.images.map((image) => (
+//             <div key={image._id} className="w-[250px] sm:w-[300px] md:w-[350px]">
+//               <Image
+//                 src={urlFor(image.asset).url() || '/placeholder.png'}
+//                 alt="Gallery image"
+//                 width={350}
+//                 height={450}
+//                 className="object-cover rounded-lg shadow-lg"
+//               />
+//             </div>
+//           ))}
+//         </div>
+//       )}
+
+//       {/* Text Section */}
+//       <div className="text-center px-6 sm:px-12 py-8 bg-blue-500">
+//         <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800">{homepageData.text}</h2>
+//       </div>
+
+//       {/* Arrivals Section */}
+//       {homepageData.Arrivalsimages?.length > 0 ? (
+//         <div className="flex flex-wrap gap-6 justify-center py-8">
+//           {homepageData.Arrivalsimages.map((image) => (
+//             <div key={image._id} className="w-[250px] sm:w-[300px] md:w-[350px]">
+//               <Image
+//                 src={urlFor(image.asset).url() || '/placeholder.png'}
+//                 alt="Arrivals image"
+//                 width={350}
+//                 height={450}
+//                 className="object-cover rounded-lg shadow-lg"
+//               />
+//             </div>
+//           ))}
+//         </div>
+//       ) : (
+//         <p className="text-center text-gray-500 py-6">No new arrivals images found.</p>
+//       )}
+
+//       {/* Action Button */}
+//       <div className="flex justify-center mt-10">
+//         <button className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200">
+//           {homepageData.buttonText1 || 'Explore Our Collection'}
+//         </button>
+//       </div>
+
+//       {/* Top Images Section */}
+//       {homepageData.topimages?.length > 0 ? (
+//         <div className="flex flex-wrap gap-6 justify-center py-8">
+//           {homepageData.topimages.map((image) => (
+//             <div key={image._id} className="w-[250px] sm:w-[300px] md:w-[350px]">
+//               <Image
+//                 src={urlFor(image.asset).url() || '/placeholder.png'}
+//                 alt="Top image"
+//                 width={350}
+//                 height={450}
+//                 className="object-cover rounded-lg shadow-lg"
+//               />
+//             </div>
+//           ))}
+//         </div>
+//       ) : (
+//         <p className="text-center text-gray-500 py-6">No top images found.</p>
+//       )}
+
+//       {/* Action Button */}
+//       <div className="flex justify-center mt-10">
+//         <button className="px-8 py-4 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition duration-200">
+//           {homepageData.buttonText2 || 'Shop Now'}
+//         </button>
+//       </div>
+
+//       {/* Dress Images Section */}
+//       {homepageData.dressimages?.length > 0 ? (
+//         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-6 py-8 px-4 max-w-[800px] mx-auto mt-2 p-6 rounded-md bg-slate-100">
+//           {homepageData.dressimages.map((image) => (
+//             <div key={image._id} className="flex flex-col items-center space-x-3 ">
+//               <Image
+//                 src={urlFor(image.asset).url() || '/placeholder.png'}
+//                 alt="Dress"
+//                 width={250}
+//                 height={350}
+//                 className="object-cover rounded-lg shadow-md"
+//               />
+//               <div className="relative text-black font-bold bg-opacity-60 rounded-md bottom-24 right-16 transform -translate-x-1/2 ">{image.dressText}</div>
+//             </div>
+//           ))}
+//         </div>
+//       ) : (
+//         <p className="text-center text-gray-500 py-6">No dress images found.</p>
+//       )}
+//     </div>
+//   );
+// }
