@@ -2,6 +2,7 @@
 import { IoSearchOutline } from "react-icons/io5";
 import Link from "next/link";
 import { useState } from "react";
+import Cart from "@/app/cart/page";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -45,14 +46,12 @@ export default function Header() {
           />
         </div>
         <div className="flex items-center gap-4">
-         <Link href="cart"> <button>
-            <img src="/image/Frame.png" alt="cart" width={24} />
+            <Cart/>
+          <Link href="#"> 
+          <button>
+            <img src="/image/Frame (1).png" alt="wishlist" width={24} />
           </button></Link>
-          <Link href="#"> <button>
-            <img src="/image/Frame (1).png" alt="wishlist" width={24
 
-            } />
-          </button></Link>
         </div>
         <button
           className="md:hidden text-xl text-black"

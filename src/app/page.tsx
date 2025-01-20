@@ -10,8 +10,8 @@ export default function Home() {
 
   <div className="relative bg-[#F2F0F1] flex flex-col lg:flex-col items-center text-center w-full px-4 lg:px-0">
 
-  <div className="flex flex-col items-center lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-10">
-    <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mt-4 sm:mt-6">
+  <div className="flex flex-col items-center lg:absolute lg:top-0 lg:left-[550px] lg:-translate-x-1/2 lg:translate-y-1/2 z-10">
+    <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mt-4 sm:-mt-12">
       FIND CLOTHES THAT MATCH YOUR STYLE
     </h1>
     <p className="text-black mt-2 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
