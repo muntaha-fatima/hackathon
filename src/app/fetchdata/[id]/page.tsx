@@ -22,13 +22,13 @@ type Product = {
   _id: string
 }
 
-interface Props {
-  params: {
-    id: string
-  }
-}
+// interface Props {
+//   params: {
+//     id: string
+//   }
+// }
 
-export default function ProductPage({ params }: Props) {
+export default function ProductPage({ params }: { params: { id: string } }) {
   const { id } = params
   const [product, setProduct] = useState<Product | null>(null)
   const [selectedSize, setSelectedSize] = useState<string>("")
