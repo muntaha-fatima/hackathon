@@ -3,6 +3,8 @@ import { IoSearchOutline } from "react-icons/io5";
 import Link from "next/link";
 import { useState } from "react";
 import Cart from "@/app/cart/page";
+import Login from "@/app/login/page";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -45,12 +47,15 @@ export default function Header() {
             className=" bg-gray-100 pl-4"
           />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 ">
             <Cart/>
-          <Link href="#"> 
+            <div className="">
+            <Login /></div>
+          {/* <Link href=""className="hover:rounded  text-purple-300"> 
           <button>
             <img src="/image/Frame (1).png" alt="wishlist" width={24} />
-          </button></Link>
+            
+          </button></Link> */}
 
         </div>
         <button
@@ -89,6 +94,7 @@ export default function Header() {
             />
             <button className="bg-gray-100 text-black px-3 py-2 rounded-r-md">
               <IoSearchOutline/>
+       
             </button>
           </div>
         </div>

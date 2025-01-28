@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Caurosel from'@/components/ui/layout/caurosel';
+
 import Image from "next/image";
 
 export default function Home() {

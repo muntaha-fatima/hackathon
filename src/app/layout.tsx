@@ -4,6 +4,11 @@ import "./globals.css";
 import Header from "@/components/ui/layout/Header";
 import Footer from "@/components/ui/layout/Footer"
 import { CartProvider } from "../app/context/CartContext"
+// import{ ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+
+// import { SessionProvider } from "next-auth/react"
+
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,13 +33,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* <SessionProvider> */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       
-        <CartProvider> <Header />{children}</CartProvider>
+
+
+     <CartProvider> <Header />{children}</CartProvider>
         <Footer />
       </body>
+      {/* </SessionProvider> */}
+
     </html>
   );
 }
