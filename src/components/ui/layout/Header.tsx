@@ -48,15 +48,8 @@ export default function Header() {
           />
         </div>
         <div className="flex items-center gap-4 ">
-            <Cart/>
-            <div className="">
-            <Login /></div>
-          {/* <Link href=""className="hover:rounded  text-purple-300"> 
-          <button>
-            <img src="/image/Frame (1).png" alt="wishlist" width={24} />
-            
-          </button></Link> */}
-
+            <Cart/>  
+            <Login />
         </div>
         <button
           className="md:hidden text-xl text-black"

@@ -4,10 +4,7 @@ import "./globals.css";
 import Header from "@/components/ui/layout/Header";
 import Footer from "@/components/ui/layout/Footer"
 import { CartProvider } from "../app/context/CartContext"
-// import{ ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
-
-// import { SessionProvider } from "next-auth/react"
-
+import {ClerkProvider} from '@clerk/nextjs'
 
 
 const geistSans = localFont({
@@ -27,11 +24,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children,}: Readonly<{children: React.ReactNode;}>) {
   return (
+<ClerkProvider>
     <html lang="en">
       {/* <SessionProvider> */}
       <body
@@ -45,5 +40,6 @@ export default function RootLayout({
       {/* </SessionProvider> */}
 
     </html>
+    </ClerkProvider>
   );
 }
