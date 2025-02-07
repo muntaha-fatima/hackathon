@@ -3,8 +3,8 @@ import { IoSearchOutline } from "react-icons/io5";
 import Link from "next/link";
 import { useState } from "react";
 import Cart from "@/app/cart/page";
-import Login from "@/app/login/page";
-
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { MdAccountCircle } from "react-icons/md";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -48,8 +48,22 @@ export default function Header() {
           />
         </div>
         <div className="flex items-center gap-4 ">
+        {/* <AuthGuard> */}
             <Cart/>  
-            <Login />
+            {/* </AuthGuard> */}
+            {/* <li><Link href="/login" >login</Link></li> */}
+            <div>
+              <SignedOut>
+        <SignInButton mode="modal">
+           
+        <MdAccountCircle className="w-7 h-7 -mt-2 cursor-pointer " /> 
+        </SignInButton>
+      </SignedOut>
+      <SignedIn>
+        <UserButton/>
+      </SignedIn>
+    </div>
+            {/* <Login /> */}
         </div>
         <button
           className="md:hidden text-xl text-black"
