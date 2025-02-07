@@ -198,6 +198,10 @@
 
 
 
+
+
+
+
 "use client";
 
 import {
@@ -230,8 +234,12 @@ const Login = () => {
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
       }
-    } catch (err: any) {
-      setError(err.errors[7]?.message || "Sign-in failed");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Sign-in failed");
+      } else {
+        setError("Sign-in failed");
+      }
     }
   };
 
@@ -308,3 +316,119 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
+
+// "use client";
+
+// import {
+//   SignedIn,
+//   SignedOut,
+//   SignInButton,
+//   useUser,
+//   useSignIn,
+// } from "@clerk/nextjs";
+// import Link from "next/link";
+// import React, { useState } from "react";
+// import { FcGoogle } from "react-icons/fc";
+// import { ImAppleinc } from "react-icons/im";
+
+// const Login = () => {
+//   const { user } = useUser();
+//   const { signIn, setActive, isLoaded } = useSignIn();
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [error, setError] = useState("");
+
+//   const handleSignIn = async (e: React.FormEvent) => {
+//     e.preventDefault();
+//     if (!isLoaded) return;
+//     try {
+//       const result = await signIn.create({
+//         identifier: email,
+//         password,
+//       });
+//       if (result.status === "complete") {
+//         await setActive({ session: result.createdSessionId });
+//       }
+//     } catch (err: any) {
+//       setError(err.errors[7]?.message || "Sign-in failed");
+//     }
+//   };
+
+//   return (
+//     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+//       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+//         <SignedIn>
+//           <h1 className="text-3xl font-bold mb-4 text-center">
+//             Welcome, {user?.firstName || "User"}!
+//           </h1>
+//           <p className="mt-4 text-lg text-center">
+//             Shop now and use the coupon <span className="font-bold text-black">SHOP.CO</span> to get a $50 discount on your next purchase!
+//           </p>
+//         </SignedIn>
+
+//         <SignedOut>
+//           <h1 className="text-3xl font-bold mb-6 text-center">Login</h1>
+//           {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+//           <div className="space-y-3">
+//             <SignInButton mode="modal">
+//               <button className="w-full flex items-center justify-center gap-2 bg-white text-gray-700 py-3 rounded-lg border border-gray-300 hover:bg-gray-100">
+//                 <FcGoogle size={24} /> Continue with Google
+//               </button>
+//             </SignInButton>
+//             <SignInButton mode="modal">
+//               <button className="w-full flex items-center justify-center gap-2 bg-white text-gray-700 py-3 rounded-lg border border-gray-300 hover:bg-gray-100">
+//                 <ImAppleinc size={24} /> Continue with Apple
+//               </button>
+//             </SignInButton>
+//           </div>
+
+//           <div className="text-center my-4 text-gray-500">or</div>
+
+//           <form onSubmit={handleSignIn} className="space-y-4">
+//             <div>
+//               <label className="block text-gray-700 font-medium mb-2">Email Address</label>
+//               <input
+//                 type="email"
+//                 placeholder="Enter your email"
+//                 value={email}
+//                 onChange={(e) => setEmail(e.target.value)}
+//                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+//                 required
+//               />
+//             </div>
+//             <div>
+//               <label className="block text-gray-700 font-medium mb-2">Password</label>
+//               <input
+//                 type="password"
+//                 placeholder="Enter your password"
+//                 value={password}
+//                 onChange={(e) => setPassword(e.target.value)}
+//                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+//                 required
+//               />
+//             </div>
+//             <div className="flex items-center justify-between">
+//               <label className="flex items-center">
+//                 <input type="checkbox" className="mr-2" />
+//                 <span className="text-gray-700 text-sm">Remember Me</span>
+//               </label>
+//               <Link href="#" className="text-sm text-gray-500 hover:underline">
+//                 Forgot Password?
+//               </Link>
+//             </div>
+//             <button type="submit" className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800">
+//               Sign In
+//             </button>
+//           </form>
+//         </SignedOut>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
