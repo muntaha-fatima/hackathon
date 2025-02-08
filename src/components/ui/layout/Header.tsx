@@ -5,6 +5,7 @@ import { useState } from "react";
 import Cart from "@/app/cart/page";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { MdAccountCircle } from "react-icons/md";
+import { ShoppingCart } from "lucide-react";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -49,7 +50,10 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-4 ">
         {/* <AuthGuard> */}
-            <Cart/>  
+            {/* <Cart/>   */}
+            <Link href="/cart"> 
+          <ShoppingCart className="h-6 w-6 -mt-1 text-black" />
+          </Link>
             {/* </AuthGuard> */}
             {/* <li><Link href="/login" >login</Link></li> */}
             <div>
