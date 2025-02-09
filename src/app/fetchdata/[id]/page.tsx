@@ -249,7 +249,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const query = `*[_type == "product" && _id == "${id}"] {
+        const query = `*[_type == "products" && _id == "${id}"] {
           name,
           description,
           price,
