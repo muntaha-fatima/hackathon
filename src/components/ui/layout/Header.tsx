@@ -2,7 +2,6 @@
 import { IoSearchOutline } from "react-icons/io5";
 import Link from "next/link";
 import { useState } from "react";
-import Cart from "@/app/cart/page";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { MdAccountCircle } from "react-icons/md";
 import { ShoppingCart } from "lucide-react";

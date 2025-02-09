@@ -686,7 +686,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import Link from "next/link";
@@ -712,7 +711,7 @@ interface CartItem {
 
 const Cart = () => {
   const { state: cartItems, dispatch } = useCart()
-  const [orders, setOrders] = useState<Order[]>([])
+  const [, setOrders] = useState<Order[]>([])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
