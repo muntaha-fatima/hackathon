@@ -32,6 +32,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   const { id } = params
   const [product, setProduct] = useState<Product | null>(null)
   const [selectedSize, setSelectedSize] = useState<string>("")
+  const [selectedColor, setSelectedColor] = useState<string>("")
   const [isLoading, setIsLoading] = useState(true)
   const { dispatch } = useCart()
 
@@ -74,9 +75,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         type: "ADD_ITEM",
         payload: {
           id: product._id,
-          title: product.name,
-          price: product.price,
+          name: product.name,
           image: product.imageUrl,
+          size: selectedSize,
+          color: selectedColor,
+          price: product.price,
         },
       })
     }
