@@ -774,7 +774,7 @@ const Cart = () => {
     setError(null)
 
     try {
-      const response = await fetch("https://admin-dashboard-omega-vert-10.vercel.app/order", {
+      const response = await fetch("https://admin-dashboard-omega-vert-10.vercel.app/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
